@@ -37,3 +37,8 @@ async def format_bsc_response(response):
     else:
         details = f"Transaction Status: Fail\nTransaction Details: {response['result']}"
     return details
+
+async def check_transaction_bitcoin(TxId):
+    check = f"https://blockchain.info/rawtx/{TxId}"
+    response = requests.get(check).json()
+    return response
